@@ -13,7 +13,10 @@ const TranslucidCuboidTooltip = ({ cuboid }: TranslucidCuboidProps) => {
     return <Html position={position}>
         <div>
             <p>
+                <b>uuid: </b>{cuboid.uuid}{'\n'}
                 <b>label: </b>{cuboid.label}{'\n'}
+                <b>camera used: </b>{cuboid.cameraUsed}{'\n'}
+                <b>stationary: </b> {cuboid.stationary ? "yes" : "no"}{'\n'}
                 <b>sibling id: </b> {cuboid.siblingId}{'\n'}
                 <b>sensor id: </b> {cuboid.sensorId}
             </p>

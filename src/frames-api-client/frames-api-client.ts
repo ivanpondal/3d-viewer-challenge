@@ -15,12 +15,12 @@ const CUBOIDS_SENSOR_ID = "cuboids.sensor_id"
 type CuboidDto = {
     uuid: string;
     label: string;
-    yaw: number;
     stationary: boolean;
     camera_used: number;
     [POSITION_X]: number;
     [POSITION_Y]: number;
     [POSITION_Z]: number;
+    yaw: number;
     [DIMENSIONS_X]: number;
     [DIMENSIONS_Y]: number;
     [DIMENSIONS_Z]: number;
