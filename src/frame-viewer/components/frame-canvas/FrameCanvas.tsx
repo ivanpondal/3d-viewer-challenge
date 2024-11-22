@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
-import './ViewerCanvas.css';
+import './FrameCanvas.css';
 import { ColoredPointCloud } from '../geometry/ColoredPointCloud';
 import { Cuboid, Frame } from '../../services/frame-api-client';
 import { TranslucidCuboid } from '../geometry/TranslucidCuboid';
@@ -9,11 +9,12 @@ import { Tooltip } from '../../../ui/tooltip/Tooltip';
 import { Vector3 } from 'three';
 import { Html } from "@react-three/drei";
 
-type ViewerCanvasProps = {
-    frame: Frame
+type FrameCanvasProps = {
+    frame: Frame;
+    loading: boolean
 }
 
-export const ViewerCanvas = ({ frame }: ViewerCanvasProps) => {
+export const FrameCanvas = ({ frame }: FrameCanvasProps) => {
     const [selectedCuboid, setSelectedCuboid] = useState<Cuboid | null>(null)
 
     return <Canvas className='viewerCanvas'>

@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 import { Point } from "../../services/frame-api-client";
+import { Points } from "@react-three/drei";
+import { BufferGeometry, Float32BufferAttribute, PointsMaterial } from "three";
 
 type ColoredPointCloudProps = {
     points: Point[];
@@ -7,33 +9,24 @@ type ColoredPointCloudProps = {
 }
 
 export const ColoredPointCloud = ({ points, coloringFn }: ColoredPointCloudProps) => {
-    const positions = useMemo(() =>
-        new Float32Array(points
-            .map(point => [point.x, point.y, point.z])
-            .flatMap(point => point))
-        , [points])
+    const positions = useMemo(() => new Float32Array(points
+        .map(point => [point.x, point.y, point.z])
+        .flatMap(point => point)), [points])
 
-    const colors = useMemo(() =>
-        new Float32Array(points
+    const geometry = useMemo(() => {
+        const geometry = new BufferGeometry();
+
+        const colors = points
             .map(coloringFn)
-            .flatMap(color => color))
-        , [points])
+            .flatMap(color => color)
 
-    return <points>
-        <bufferGeometry>
-            <bufferAttribute
-                attach="attributes-position"
-                array={positions}
-                count={positions.length / 3}
-                itemSize={3}
-            />
-            <bufferAttribute
-                attach="attributes-color"
-                array={colors}
-                count={colors.length / 3}
-                itemSize={3}
-            />
-        </bufferGeometry>
-        <pointsMaterial vertexColors size={0.15} />
-    </points>
+        geometry.setAttribute('position', new Float32BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new Float32BufferAttribute(colors, 3));
+
+        return geometry;
+    }, [points, positions]);
+
+    const material = useMemo(() => new PointsMaterial({ size: 1, vertexColors: true }), []);
+
+    return <Points geometry={geometry} positions={positions} material={material} />
 }

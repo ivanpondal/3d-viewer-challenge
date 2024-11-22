@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import { Cuboid } from "../../services/frame-api-client"
 import { Vector3 } from "three"
 
@@ -11,7 +11,8 @@ type TranslucidCuboidProps = {
 export const TranslucidCuboid = ({ cuboid, onPointerEnter, onPointerLeave }: TranslucidCuboidProps) => {
     const [hovered, setHovered] = useState(false);
 
-    const position = new Vector3(cuboid.position.x, cuboid.position.y, cuboid.position.z)
+    const position = useMemo(() => new Vector3(cuboid.position.x, cuboid.position.y, cuboid.position.z), [cuboid.position])
+
     return <>
         <mesh
             position={position}

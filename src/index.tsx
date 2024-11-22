@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
-import { FrameNavigator } from "./frame-viewer/components/frame-navigator/FrameNavigator";
+import { FrameExplorer } from "./frame-viewer/components/frame-explorer/FrameExplorer";
 
 const container = document.getElementById('root');
 const root = createRoot(container!);
-root.render(<FrameNavigator />);
+root.render(<FrameExplorer />);
