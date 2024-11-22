@@ -1,8 +1,10 @@
 {
   "name": "pandaset-challenge",
   "version": "1.0.0",
+  "source": "src/index.html",
   "scripts": {
-    "dev": "parcel src/index.html"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "license": "MIT",
   "devDependencies": {
