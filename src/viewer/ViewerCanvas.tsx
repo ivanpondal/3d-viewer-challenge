@@ -11,7 +11,7 @@ type ViewerCanvasProps = {
 
 export const ViewerCanvas = ({ frame }: ViewerCanvasProps) => (
     <Canvas className='viewerCanvas'>
-        <ColoredPointCloud points={frame.points} />
+        <ColoredPointCloud points={frame.points} coloringFn={point => [0, 1 / point.z, 0]} />
         <OrbitControls />
     </Canvas >
 )

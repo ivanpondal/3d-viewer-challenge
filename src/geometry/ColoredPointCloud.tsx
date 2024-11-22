@@ -2,10 +2,11 @@ import React, { useMemo } from "react";
 import { Point } from "../frames-api-client/frames-api-client";
 
 type ColoredPointCloudProps = {
-    points: Point[]
+    points: Point[];
+    coloringFn: (point: Point) => [number, number, number]
 }
 
-export const ColoredPointCloud = ({ points }: ColoredPointCloudProps) => {
+export const ColoredPointCloud = ({ points, coloringFn }: ColoredPointCloudProps) => {
     const positions = useMemo(() =>
         new Float32Array(points
             .map(point => [point.x, point.y, point.z])
@@ -14,8 +15,8 @@ export const ColoredPointCloud = ({ points }: ColoredPointCloudProps) => {
 
     const colors = useMemo(() =>
         new Float32Array(points
-            .map(point => [point.x, point.y, point.z])
-            .flatMap(point => point))
+            .map(coloringFn)
+            .flatMap(color => color))
         , [points])
 
     return <points>
