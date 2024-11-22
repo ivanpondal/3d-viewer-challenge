@@ -6,7 +6,8 @@
       "strict": true,
       "esModuleInterop": true,
       "moduleResolution": "node",
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "lib": ["dom", "es2019"]
     },
     "include": ["src"]
   }

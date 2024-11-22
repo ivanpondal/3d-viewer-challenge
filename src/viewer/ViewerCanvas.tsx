@@ -3,10 +3,15 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
 import './ViewerCanvas.css';
 import { ColoredPointCloud } from '../geometry/ColoredPointCloud';
+import { Frame } from '../frames-api-client/frames-api-client';
 
-export const ViewerCanvas = () => (
+type ViewerCanvasProps = {
+    frame: Frame
+}
+
+export const ViewerCanvas = ({ frame }: ViewerCanvasProps) => (
     <Canvas className='viewerCanvas'>
-        <ColoredPointCloud />
+        <ColoredPointCloud points={frame.points} />
         <OrbitControls />
     </Canvas >
 )

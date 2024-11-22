@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { Point } from "../frames-api-client/frames-api-client";
 
-export const ColoredPointCloud = () => {
-    const positions = new Float32Array([0, 0, 0]);
-    const colors = new Float32Array([0, 0, 0]);
+type ColoredPointCloudProps = {
+    points: Point[]
+}
+
+export const ColoredPointCloud = ({ points }: ColoredPointCloudProps) => {
+    const positions = useMemo(() =>
+        new Float32Array(points
+            .map(point => [point.x, point.y, point.z])
+            .flatMap(point => point))
+        , [points])
+
+    const colors = useMemo(() =>
+        new Float32Array(points
+            .map(point => [point.x, point.y, point.z])
+            .flatMap(point => point))
+        , [points])
 
     return <points>
         <bufferGeometry>
