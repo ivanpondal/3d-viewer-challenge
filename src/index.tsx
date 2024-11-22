@@ -1,6 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 
 const App: React.FC = () => <h1>Hello, React with TypeScript and Parcel!</h1>;
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const container = document.getElementById('root');
+const root = createRoot(container!);
+root.render(<App />);
