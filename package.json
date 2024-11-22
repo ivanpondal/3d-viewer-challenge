@@ -1,11 +1,15 @@
 {
   "name": "pandaset-challenge",
   "version": "1.0.0",
+  "scripts": {
+    "dev": "parcel src/index.html"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/three": "^0.156.0",
     "buffer": "^5.5.0||^6.0.0",
     "parcel": "^2.9.3",
+    "process": "^0.11.10",
     "typescript": "^5.2.2"
   },
   "dependencies": {
@@ -15,5 +19,6 @@
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
     "three": "^0.157.0"
-  }
+  },
+  "packageManager": "pnpm@8.15.2+sha1.798034f615aa211c6c2ae00010cc20be5fc102ee"
 }

@@ -1,1 +1,4 @@
 frame_*.json
+node_modules
+.parcel-cache
+dist
