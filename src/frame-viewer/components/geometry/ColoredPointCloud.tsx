@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Point } from "../frames-api-client/frames-api-client";
+import { Point } from "../../services/frame-api-client";
 
 type ColoredPointCloudProps = {
     points: Point[];

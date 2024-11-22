@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Cuboid } from "../frames-api-client/frames-api-client"
+import { Cuboid } from "../../services/frame-api-client"
 import { Vector3 } from "three"
 
 type TranslucidCuboidProps = {

@@ -56,7 +56,7 @@ export type Cuboid = Pick<CuboidDto, "uuid" | "label" | "yaw" | "stationary"> & 
     sensorId: number;
 }
 
-class FramesApiClient {
+class FrameApiClient {
     private baseUrl: string;
 
     constructor(baseUrl: string) {
@@ -96,4 +96,4 @@ class FramesApiClient {
     }
 }
 
-export const framesApiClient = new FramesApiClient("https://static.scale.com/uploads/pandaset-challenge")
+export const frameApiClient = new FrameApiClient("https://static.scale.com/uploads/pandaset-challenge")

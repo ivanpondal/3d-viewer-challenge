@@ -1,25 +1,20 @@
 import React from "react";
-import { Cuboid } from "../../frames-api-client/frames-api-client";
-import { Vector3 } from "three";
-import { Html } from "@react-three/drei";
+import { Cuboid } from "../../frame-viewer/services/frame-api-client";
+import './Tooltip.css'
 
 type TooltipProps = {
     cuboid: Cuboid
 }
 
 export const Tooltip = ({ cuboid }: TooltipProps) => {
-    const position = new Vector3(cuboid.position.x, cuboid.position.y, cuboid.position.z)
-
-    return <Html position={position}>
-        <div>
-            <p>
-                <b>uuid: </b>{cuboid.uuid}{'\n'}
-                <b>label: </b>{cuboid.label}{'\n'}
-                <b>camera used: </b>{cuboid.cameraUsed}{'\n'}
-                <b>stationary: </b> {cuboid.stationary ? "yes" : "no"}{'\n'}
-                <b>sibling id: </b> {cuboid.siblingId}{'\n'}
-                <b>sensor id: </b> {cuboid.sensorId}
-            </p>
-        </div>
-    </Html>
+    return <div className="tooltip">
+        <p>
+            <b>uuid: </b>{`${cuboid.uuid}\n`}
+            <b>label: </b>{cuboid.label}{'\n'}
+            <b>camera used: </b>{cuboid.cameraUsed}{'\n'}
+            <b>stationary: </b> {cuboid.stationary ? "yes" : "no"}{'\n'}
+            <b>sibling id: </b> {cuboid.siblingId}{'\n'}
+            <b>sensor id: </b> {cuboid.sensorId}
+        </p>
+    </div>
 }
