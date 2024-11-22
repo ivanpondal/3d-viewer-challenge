@@ -34,6 +34,6 @@ export const ColoredPointCloud = ({ points, coloringFn }: ColoredPointCloudProps
                 itemSize={3}
             />
         </bufferGeometry>
-        <pointsMaterial vertexColors size={2} />
+        <pointsMaterial vertexColors size={0.15} />
     </points>
 }
