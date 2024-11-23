@@ -1,3 +1,10 @@
+.slider-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.4rem;
+}
+
 .slider {
     display: block;
     -webkit-appearance: none;
@@ -8,7 +15,6 @@
     width: 70vw;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 2rem;
 }
 
 .slider::-webkit-slider-thumb {
