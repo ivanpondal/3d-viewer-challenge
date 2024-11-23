@@ -9,12 +9,7 @@ type SliderProps = {
 export const Slider = ({ currentValue, onChange }: SliderProps) => {
     return <>
         <input className="slider" type="range"
-            min={0} max={49} value={currentValue} step={1} list="markers"
+            min={0} max={49} value={currentValue} step={1}
             onChange={(event) => onChange(parseInt(event.target.value))} />
-        <datalist id="markers">
-            <option value="0"></option>
-            <option value="25"></option>
-            <option value="50"></option>
-        </datalist>
     </>
 }

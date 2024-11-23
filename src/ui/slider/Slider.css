@@ -1,7 +1,29 @@
 .slider {
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    background-color: rgba(245, 245, 245, 0.9);
+    height: 0.8rem;
     width: 70vw;
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 1rem;
-    display: block;
+    margin-bottom: 2rem;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.2rem;
+    height: 3.2rem;
+    background: green;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: rgb(0,182,0);
+}
+
+.slider::-moz-range-thumb:hover {
+    opacity: 0.8;
 }
