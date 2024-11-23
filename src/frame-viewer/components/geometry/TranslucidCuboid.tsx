@@ -20,15 +20,13 @@ export const TranslucidCuboid = ({ cuboid, onPointerEnter, onPointerLeave }: Tra
         onPointerEnter={() => {
             setHovered(true);
             onPointerEnter?.();
-        }
-        }
+        }}
         onPointerLeave={() => {
             setHovered(false);
             onPointerLeave?.();
         }}
     >
         <boxGeometry args={[cuboid.dimensions.x, cuboid.dimensions.y, cuboid.dimensions.z]} />
-
         <meshStandardMaterial color={0x00ff00} transparent opacity={hovered ? 0.8 : 0.6} />
         <Edges
             linewidth={hovered ? 8 : 4}

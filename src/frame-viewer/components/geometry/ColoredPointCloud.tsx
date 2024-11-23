@@ -26,7 +26,7 @@ export const ColoredPointCloud = ({ points, coloringFn }: ColoredPointCloudProps
         return geometry;
     }, [points, positions]);
 
-    const material = useMemo(() => new PointsMaterial({ size: 0.25, vertexColors: true }), []);
+    const material = useMemo(() => new PointsMaterial({ size: 0.4, vertexColors: true }), []);
 
     return <Points geometry={geometry} positions={positions} material={material} />
 }

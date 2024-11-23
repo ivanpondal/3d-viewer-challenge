@@ -15,6 +15,9 @@ export const Tooltip = ({ cuboid }: TooltipProps) => {
             <b>stationary: </b> {cuboid.stationary ? "yes" : "no"}{'\n'}
             <b>sibling id: </b> {cuboid.siblingId}{'\n'}
             <b>sensor id: </b> {cuboid.sensorId}
+            <b>x: </b> {cuboid.position.x}
+            <b>y: </b> {cuboid.position.y}
+            <b>z: </b> {cuboid.position.z}
         </p>
     </div>
 }

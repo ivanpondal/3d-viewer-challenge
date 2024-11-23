@@ -1,38 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from "@react-three/drei";
 import './FrameCanvas.css';
 import { ColoredPointCloud } from '../geometry/ColoredPointCloud';
 import { Cuboid, Frame } from '../../services/frame-api-client';
 import { TranslucidCuboid } from '../geometry/TranslucidCuboid';
-import { Tooltip } from '../../../ui/tooltip/Tooltip';
-import { Vector3 } from 'three';
-import { Html } from "@react-three/drei";
 
 type FrameCanvasProps = {
     frame: Frame;
-    loading: boolean
+    onSelectedCuboidChange: (cuboid: Cuboid | null) => void
 }
 
-export const FrameCanvas = ({ frame }: FrameCanvasProps) => {
-    const [selectedCuboid, setSelectedCuboid] = useState<Cuboid | null>(null)
+export const FrameCanvas = ({ frame, onSelectedCuboidChange }: FrameCanvasProps) => {
 
-    return <Canvas className='viewerCanvas'>
-        <color attach="background" args={[0x000000]} />
+    return <Canvas className='viewerCanvas' camera={{ position: [0, 0, 20] }}>
         <ambientLight />
+        <color attach="background" args={[0x000000]} />
 
         <ColoredPointCloud points={frame.points} coloringFn={point => [0, 1 / point.z, 0]} />
 
         {frame.cuboids.map(cuboid =>
             <TranslucidCuboid key={cuboid.uuid} cuboid={cuboid}
-                onPointerEnter={() => setSelectedCuboid(cuboid)}
-                onPointerLeave={() => setSelectedCuboid(null)}
+                onPointerEnter={() => onSelectedCuboidChange(cuboid)}
+                onPointerLeave={() => onSelectedCuboidChange(null)}
             />)}
-
-        {selectedCuboid &&
-            <Html position={new Vector3(selectedCuboid.position.x, selectedCuboid.position.y, selectedCuboid.position.z)}>
-                <Tooltip cuboid={selectedCuboid} />
-            </Html>}
 
         <OrbitControls />
     </Canvas >

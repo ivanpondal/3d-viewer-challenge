@@ -3,7 +3,7 @@
     height: 100%;
 }
 
-.frame-explorer__overlay {
+.frame-explorer__slider-overlay {
     position: absolute;
     width: 100%;
     bottom: 0px;
