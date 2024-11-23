@@ -1,5 +1,5 @@
 import React from "react";
-import { Cuboid } from "../../frame-viewer/services/frame-api-client";
+import { Cuboid } from "../../frame-explorer/services/frame-api-client";
 import './Tooltip.css'
 
 type TooltipProps = {
@@ -12,12 +12,11 @@ type LabelProps = {
     value: string;
 }
 
-const Label = ({ property, value }: LabelProps) => {
-    return <p className="source-code-pro-font no-margin"><b>{property}: </b>{value}</p>
-}
+const Label = ({ property, value }: LabelProps) =>
+    <p className="source-code-pro-font no-margin"><b>{property}: </b>{value}</p>
 
-export const Tooltip = ({ cuboid, onDismiss }: TooltipProps) => {
-    return <div className="tooltip" onClick={onDismiss}>
+export const Tooltip = ({ cuboid, onDismiss }: TooltipProps) =>
+    <div className="tooltip" onClick={onDismiss}>
         <Label property="uuid" value={cuboid.uuid} />
         <Label property="position [x, y, z]" value={`[${cuboid.position.x}, ${cuboid.position.y}, ${cuboid.position.z}]`} />
         <Label property="dimensions [x, y, z]" value={`[${cuboid.dimensions.x}, ${cuboid.dimensions.y}, ${cuboid.dimensions.z}]`} />
@@ -28,4 +27,3 @@ export const Tooltip = ({ cuboid, onDismiss }: TooltipProps) => {
         <Label property="sibling id" value={cuboid.siblingId} />
         <p className="source-code-pro-font tooltip-text--margin-top">(click anywhere to dismiss)</p>
     </div>
-}

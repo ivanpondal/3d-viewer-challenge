@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useAsync } from "react-use";
-import { Cuboid, frameApiClient } from "../../services/frame-api-client";
-import { FrameCanvas } from "../frame-canvas/FrameCanvas";
+import { Cuboid, frameApiClient } from "./services/frame-api-client";
+import { FrameCanvas } from "./components/frame-canvas/FrameCanvas";
 import './FrameExplorer.css';
-import { Slider } from "../../../ui/slider/Slider";
-import { Tooltip } from "../../../ui/tooltip/Tooltip";
-import { Toast } from "../../../ui/toast/Toast";
+import { Slider } from "../ui/slider/Slider";
+import { Tooltip } from "../ui/tooltip/Tooltip";
+import { Toast } from "../ui/toast/Toast";
 
 export const FrameExplorer = () => {
     const [selectedFrameId, setSelectedFrameId] = useState(0);

@@ -11,9 +11,8 @@ type FrameCanvasProps = {
     onSelectedCuboidChange: (cuboid: Cuboid | null) => void
 }
 
-export const FrameCanvas = ({ frame, onSelectedCuboidChange }: FrameCanvasProps) => {
-
-    return <Canvas className='viewerCanvas' camera={{ position: [0, 0, 20] }} onClick={() => onSelectedCuboidChange(null)}>
+export const FrameCanvas = ({ frame, onSelectedCuboidChange }: FrameCanvasProps) =>
+    <Canvas className='viewerCanvas' camera={{ position: [0, 0, 20] }} onClick={() => onSelectedCuboidChange(null)}>
         <ambientLight />
         <color attach="background" args={[0x000000]} />
 
@@ -26,4 +25,3 @@ export const FrameCanvas = ({ frame, onSelectedCuboidChange }: FrameCanvasProps)
 
         <OrbitControls />
     </Canvas >
-}

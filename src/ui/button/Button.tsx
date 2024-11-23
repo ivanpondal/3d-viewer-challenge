@@ -6,6 +6,5 @@ type ButtonProps = {
     onClick: () => void
 }
 
-export const Button = ({ text, onClick }: ButtonProps) => {
-    return <button className="button source-code-pro-font" type="button" onClick={onClick}>{text}</button>
-}
+export const Button = ({ text, onClick }: ButtonProps) =>
+    <button className="button source-code-pro-font" type="button" onClick={onClick}>{text}</button>
