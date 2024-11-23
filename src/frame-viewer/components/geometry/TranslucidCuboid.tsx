@@ -6,10 +6,9 @@ import { Edges } from "@react-three/drei"
 type TranslucidCuboidProps = {
     cuboid: Cuboid,
     onPointerEnter?: () => void,
-    onPointerLeave?: () => void
 }
 
-export const TranslucidCuboid = ({ cuboid, onPointerEnter, onPointerLeave }: TranslucidCuboidProps) => {
+export const TranslucidCuboid = ({ cuboid, onPointerEnter }: TranslucidCuboidProps) => {
     const [hovered, setHovered] = useState(false);
 
     const position = useMemo(() => new Vector3(cuboid.position.x, cuboid.position.y, cuboid.position.z), [cuboid.position])
@@ -23,7 +22,6 @@ export const TranslucidCuboid = ({ cuboid, onPointerEnter, onPointerLeave }: Tra
         }}
         onPointerLeave={() => {
             setHovered(false);
-            onPointerLeave?.();
         }}
     >
         <boxGeometry args={[cuboid.dimensions.x, cuboid.dimensions.y, cuboid.dimensions.z]} />

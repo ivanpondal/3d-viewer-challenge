@@ -16,8 +16,11 @@ export const FrameExplorer = () => {
         <FrameCanvas frame={state.value ?? { frameId: selectedFrameId, points: [], cuboids: [] }}
             onSelectedCuboidChange={(cuboid) => setSelectedCuboid(cuboid)} />
 
+        <div className="frame-explorer__tooltip-overlay">
+            {selectedCuboid && <Tooltip cuboid={selectedCuboid} onDismiss={() => setSelectedCuboid(null)} />}
+        </div>
+
         <div className="frame-explorer__slider-overlay">
-            {selectedCuboid && <Tooltip cuboid={selectedCuboid} />}
             {state.loading && <p>Loading frame {selectedFrameId}...</p>}
 
             <Slider currentValue={selectedFrameId} onChange={(newValue) => setSelectedFrameId(newValue)} />
