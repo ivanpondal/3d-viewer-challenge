@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from "@react-three/drei";
+import { FlyControls } from "@react-three/drei";
 import './FrameCanvas.css';
 import { ColoredPointCloud } from '../geometry/ColoredPointCloud';
 import { Cuboid, Frame } from '../../services/frame-api-client';
@@ -12,7 +12,7 @@ type FrameCanvasProps = {
 }
 
 export const FrameCanvas = ({ frame, onSelectedCuboidChange }: FrameCanvasProps) =>
-    <Canvas className='viewerCanvas' camera={{ position: [0, 0, 20] }} onClick={() => onSelectedCuboidChange(null)}>
+    <Canvas className='viewerCanvas' camera={{ position: [0, 0, 20], rotation: [0, 0, 0] }} onClick={() => onSelectedCuboidChange(null)}>
         <ambientLight />
         <color attach="background" args={[0x000000]} />
 
@@ -23,5 +23,5 @@ export const FrameCanvas = ({ frame, onSelectedCuboidChange }: FrameCanvasProps)
                 onPointerEnter={() => onSelectedCuboidChange(cuboid)}
             />)}
 
-        <OrbitControls />
+        <FlyControls movementSpeed={60} dragToLook rollSpeed={2} />
     </Canvas >
