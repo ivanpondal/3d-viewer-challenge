@@ -4,7 +4,7 @@ import './Tooltip.css'
 
 type TooltipProps = {
     cuboid: Cuboid;
-    onDismiss: ()=> void
+    onDismiss: () => void
 }
 
 type LabelProps = {
@@ -13,7 +13,7 @@ type LabelProps = {
 }
 
 const Label = ({ property, value }: LabelProps) => {
-    return <p className="source-code-pro-font tooltip-text--no-margin"><b>{property}: </b>{value}</p>
+    return <p className="source-code-pro-font no-margin"><b>{property}: </b>{value}</p>
 }
 
 export const Tooltip = ({ cuboid, onDismiss }: TooltipProps) => {

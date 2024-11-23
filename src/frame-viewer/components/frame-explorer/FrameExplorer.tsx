@@ -5,6 +5,7 @@ import { FrameCanvas } from "../frame-canvas/FrameCanvas";
 import './FrameExplorer.css';
 import { Slider } from "../../../ui/slider/Slider";
 import { Tooltip } from "../../../ui/tooltip/Tooltip";
+import { Toast } from "../../../ui/toast/Toast";
 
 export const FrameExplorer = () => {
     const [selectedFrameId, setSelectedFrameId] = useState(0);
@@ -18,11 +19,10 @@ export const FrameExplorer = () => {
 
         <div className="frame-explorer__tooltip-overlay">
             {selectedCuboid && <Tooltip cuboid={selectedCuboid} onDismiss={() => setSelectedCuboid(null)} />}
+            {state.loading && <Toast text={`Loading frame ${selectedFrameId}...`} />}
         </div>
 
         <div className="frame-explorer__slider-overlay">
-            {state.loading && <p>Loading frame {selectedFrameId}...</p>}
-
             <Slider currentValue={selectedFrameId} onChange={(newValue) => setSelectedFrameId(newValue)} />
         </div>
     </div>
