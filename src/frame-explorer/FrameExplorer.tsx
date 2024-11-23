@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAsync } from "react-use";
+import { useAsync, useKey } from "react-use";
 import { Cuboid, frameApiClient } from "./services/frame-api-client";
 import { FrameCanvas } from "./components/frame-canvas/FrameCanvas";
 import './FrameExplorer.css';
@@ -10,6 +10,9 @@ import { Toast } from "../ui/toast/Toast";
 export const FrameExplorer = () => {
     const [selectedFrameId, setSelectedFrameId] = useState(0);
     const [selectedCuboid, setSelectedCuboid] = useState<Cuboid | null>(null)
+
+    useKey('j', () => setSelectedFrameId((prevState) => prevState > 0 ? prevState - 1 : prevState));
+    useKey('k', () => setSelectedFrameId((prevState) => prevState < 49 ? prevState + 1 : prevState));
 
     const state = useAsync(async () => frameApiClient.get(selectedFrameId), [selectedFrameId]);
 
