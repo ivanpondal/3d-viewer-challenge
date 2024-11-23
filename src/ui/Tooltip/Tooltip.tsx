@@ -1,5 +1,5 @@
 import React from "react";
-import { Cuboid } from "../../frame-explorer/services/frame-api-client";
+import { Cuboid } from "frame-explorer/services/frame-api-client";
 import './Tooltip.css'
 
 type TooltipProps = {

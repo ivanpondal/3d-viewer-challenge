@@ -1,7 +1,7 @@
 import React from "react";
 import './Slider.css';
-import { Toast } from "../toast/Toast";
-import { Button } from "../button/Button";
+import { Toast } from "ui/toast/Toast";
+import { Button } from "ui/button/Button";
 
 type SliderProps = {
     currentValue: number;

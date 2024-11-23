@@ -2,9 +2,9 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { FlyControls } from "@react-three/drei";
 import './FrameCanvas.css';
-import { ColoredPointCloud } from '../geometry/ColoredPointCloud';
-import { Cuboid, Frame } from '../../services/frame-api-client';
-import { TranslucidCuboid } from '../geometry/TranslucidCuboid';
+import { ColoredPointCloud } from 'frame-explorer/components/geometry/ColoredPointCloud';
+import { Cuboid, Frame } from 'frame-explorer/services/frame-api-client';
+import { TranslucidCuboid } from 'frame-explorer/components/geometry/TranslucidCuboid';
 
 type FrameCanvasProps = {
     frame: Frame;

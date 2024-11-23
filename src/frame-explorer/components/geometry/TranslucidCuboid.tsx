@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react"
-import { Cuboid } from "../../services/frame-api-client"
+import { Cuboid } from "frame-explorer/services/frame-api-client"
 import { Vector3 } from "three"
 import { Edges } from "@react-three/drei"
 
